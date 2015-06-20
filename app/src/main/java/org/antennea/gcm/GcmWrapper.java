@@ -12,13 +12,7 @@ import org.antennea.android.utils.PreferencesUtil;
 
 import java.io.IOException;
 
-
-/**
- * Created by nsankaran on 6/11/15.
- */
 public class GcmWrapper {
-
-
 
     private Context context;
 
