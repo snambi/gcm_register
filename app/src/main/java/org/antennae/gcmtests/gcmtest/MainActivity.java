@@ -1,11 +1,6 @@
 package org.antennae.gcmtests.gcmtest;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -15,11 +10,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennea.gcm.GcmWrapper;
+import org.antennea.android.gcm.GcmWrapper;
 
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -29,11 +22,8 @@ public class MainActivity extends ActionBarActivity {
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    GoogleCloudMessaging gcm;
-    String regid;
     Context context;
     AtomicInteger msgId = new AtomicInteger();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +31,14 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         context = getApplicationContext();
-        // GcmWrapper startup
+        context.getSharedPreferences("ANTENNAE", MODE_PRIVATE);
 
         GcmWrapper gcmwrapper = new GcmWrapper(context);
-        String registrationId = gcmwrapper.getRegId();
+        String registrationId = gcmwrapper.getRegistrationId();
 
-        Toast.makeText(context, "REG_ID = "+ registrationId, Toast.LENGTH_SHORT).show();
+//        if( registrationId != null || !registrationId.trim().equals("")) {
+//            //Toast.makeText(context, "REG_ID = " + registrationId, Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override

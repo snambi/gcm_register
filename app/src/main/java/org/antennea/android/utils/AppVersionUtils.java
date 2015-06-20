@@ -5,18 +5,17 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import org.antennea.Constants;
+
 /**
  * Created by nsankaran on 6/16/15.
  */
 public class AppVersionUtils {
 
-    public static final String PROPERTY_APP_VERSION = "appVersion";
 
-    public static int getAppVersion( Context context){
-        int appversion = getAppVersionFromApk(context);
-        return appversion;
-    }
-
+    /*
+        Get the App version from installed APK file
+     */
     public static int getAppVersionFromApk( Context context ){
 
         int appversion;
@@ -30,16 +29,5 @@ public class AppVersionUtils {
 
         return appversion;
     }
-
-    public static int getSavedAppVersion(SharedPreferences prefs){
-        int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
-        return registeredVersion;
-    }
-
-    public static void saveAppVersion( SharedPreferences prefs , int appVersion){
-        prefs.edit().putInt(PROPERTY_APP_VERSION, appVersion );
-    }
-
-
 
 }
