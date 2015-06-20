@@ -4,7 +4,7 @@ import android.app.IntentService;
 import android.content.Intent;
 
 /**
- * Created by nsankaran on 6/18/15.
+ * Created by nambi sankaran on 6/18/15.
  */
 public class GcmIntentService extends IntentService {
 

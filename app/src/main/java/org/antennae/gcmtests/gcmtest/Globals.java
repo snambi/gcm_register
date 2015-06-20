@@ -1,8 +1,9 @@
 package org.antennae.gcmtests.gcmtest;
 
 /**
- * Created by nsankaran on 6/11/15.
+ * Created by nambi sankaran on 6/11/15.
  */
+@Deprecated
 public class Globals
 {
     public static final String TAG = "GcmWrapper DEMO";

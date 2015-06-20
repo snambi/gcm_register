@@ -18,7 +18,7 @@ import org.antennea.Constants;
 import java.io.IOException;
 
 /**
- * Created by nsankaran on 6/17/15.
+ * Created by nambi sankaran on 6/17/15.
  */
 public class MyGcmIntentService extends IntentService {
 
