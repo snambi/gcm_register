@@ -1,19 +1,12 @@
 package org.antennae.gcmtests.gcmtest;
 
 import android.app.IntentService;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.provider.Settings;
-import android.support.v7.app.NotificationCompat;
-import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
-import org.antennea.Constants;
+import org.antennea.android.Constants;
 
 import java.io.IOException;
 

@@ -20,8 +20,8 @@ import android.os.AsyncTask;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennea.Constants;
-import org.antennea.android.utils.AntennaeContext;
+import org.antennea.android.Constants;
+import org.antennea.android.AntennaeContext;
 
 import java.io.IOException;
 

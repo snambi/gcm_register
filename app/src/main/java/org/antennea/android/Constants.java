@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.antennea;
+package org.antennea.android;
 
 /**
  * Created by nambi sankaran on 6/16/15.

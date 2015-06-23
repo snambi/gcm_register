@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package org.antennea.android.utils;
+package org.antennea.android;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
-import org.antennea.Constants;
+import org.antennea.android.utils.AppVersionUtils;
 
 /**
  * Created by nambi sankaran on 6/16/15.

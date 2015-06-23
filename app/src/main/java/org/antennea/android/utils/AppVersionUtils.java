@@ -17,11 +17,8 @@
 package org.antennea.android.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-
-import org.antennea.Constants;
 
 /**
  * Created by nsankaran on 6/16/15.
