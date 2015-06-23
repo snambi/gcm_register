@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.telephony.TelephonyManager;
 
+import org.antennea.android.transport.AppInfo;
 import org.antennea.android.transport.DeviceInfo;
 import org.antennea.android.transport.PhoneTypeEnum;
 import org.antennea.android.utils.AppVersionUtils;
@@ -124,11 +125,14 @@ public class AntennaeContext {
             deviceInfo.setNetworkOperatorName( telephonyManager.getNetworkOperatorName() );
         }
 
-        // Get the app details
-
         return deviceInfo;
     }
 
+    public AppInfo getAppInfo(){
+        AppInfo appinfo = new AppInfo();
+
+        return appinfo;
+    }
 
     public boolean isNewRegistrationIdNeeded(){
         boolean result = false;

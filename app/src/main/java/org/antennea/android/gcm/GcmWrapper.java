@@ -17,11 +17,14 @@ package org.antennea.android.gcm;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import org.antennae.gcmtests.gcmtest.Globals;
 import org.antennea.android.Constants;
 import org.antennea.android.AntennaeContext;
+import org.antennea.android.transport.AppInfo;
 import org.antennea.android.transport.DeviceInfo;
 
 import java.io.IOException;
@@ -110,9 +113,10 @@ public class GcmWrapper {
                 // retrieve the device information
                 DeviceInfo deviceInfo = antennaeContext.getDeviceInfo();
 
-
                 // send registration Id + device information to the app server
+                AppInfo appInfo = antennaeContext.getAppInfo();
 
+                Log.i(Globals.TAG, "DeviceInfo " + deviceInfo.toJson());
 
             } catch (IOException e) {
                 e.printStackTrace();
