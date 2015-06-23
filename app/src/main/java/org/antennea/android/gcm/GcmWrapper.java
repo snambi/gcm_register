@@ -22,6 +22,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import org.antennea.android.Constants;
 import org.antennea.android.AntennaeContext;
+import org.antennea.android.transport.DeviceInfo;
 
 import java.io.IOException;
 
@@ -72,6 +73,8 @@ public class GcmWrapper {
         return registrationId;
     }
 
+
+
     public void registerWithGcm(){
         GcmRegistrationTask registerTask = new GcmRegistrationTask(googleCloudMessaging, antennaeContext, Constants.PROJECT_ID);
         registerTask.execute();
@@ -98,8 +101,18 @@ public class GcmWrapper {
 
             try {
 
+                // register the app with GCM
                 regId = gcm.register( projectId );
+
+                // save the registrationId locally
                 antennaeContext.saveRegistrationId(regId);
+
+                // retrieve the device information
+                DeviceInfo deviceInfo = antennaeContext.getDeviceInfo();
+
+
+                // send registration Id + device information to the app server
+
 
             } catch (IOException e) {
                 e.printStackTrace();

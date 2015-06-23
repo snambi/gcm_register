@@ -18,7 +18,10 @@ package org.antennea.android;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.telephony.TelephonyManager;
 
+import org.antennea.android.transport.DeviceInfo;
+import org.antennea.android.transport.PhoneTypeEnum;
 import org.antennea.android.utils.AppVersionUtils;
 
 /**
@@ -73,6 +76,57 @@ public class AntennaeContext {
         }
 
         return result;
+    }
+
+
+    public DeviceInfo getDeviceInfo(){
+
+        DeviceInfo deviceInfo = new DeviceInfo();
+
+        // get the device details
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if( telephonyManager != null ){
+
+            PhoneTypeEnum phonetype = null;
+            int pt = telephonyManager.getPhoneType();
+
+            switch (pt) {
+                case (TelephonyManager.PHONE_TYPE_CDMA):
+                    phonetype = PhoneTypeEnum.CDMA;
+                    break;
+                case (TelephonyManager.PHONE_TYPE_GSM) :
+                    phonetype = PhoneTypeEnum.GSM;
+                    break;
+                case (TelephonyManager.PHONE_TYPE_SIP):
+                    phonetype = PhoneTypeEnum.SIP;
+                    break;
+                default:
+                    phonetype = PhoneTypeEnum.NONE;
+                    break;
+            }
+
+            // Getting Device Id
+            deviceInfo.setDeviceId( telephonyManager.getDeviceId());
+
+            // Getting software version( not sdk version )
+            deviceInfo.setSoftwareVersion(telephonyManager.getDeviceSoftwareVersion());
+
+            // Get the phone’s number
+            deviceInfo.setPhoneNumber(telephonyManager.getLine1Number());
+
+            // Getting connected network iso country code
+            deviceInfo.setNetworkCountryIso(telephonyManager.getNetworkCountryIso());
+
+            // Getting the connected network operator ID
+            deviceInfo.setNetworkOperatorId(telephonyManager.getNetworkOperator());
+
+            // Getting the connected network operator name
+            deviceInfo.setNetworkOperatorName( telephonyManager.getNetworkOperatorName() );
+        }
+
+        // Get the app details
+
+        return deviceInfo;
     }
 
 
