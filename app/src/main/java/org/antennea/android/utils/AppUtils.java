@@ -20,11 +20,12 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import org.antennea.android.transport.AppInfo;
+
 /**
  * Created by nsankaran on 6/16/15.
  */
-public class AppVersionUtils {
-
+public class AppUtils {
 
     /*
         Get the App version from installed APK file
@@ -43,4 +44,23 @@ public class AppVersionUtils {
         return appversion;
     }
 
+    public static AppInfo getAppInfoFromApk( Context context ){
+
+        AppInfo appInfo = new AppInfo();
+
+        try {
+
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+
+            appInfo.setFirstInstallTime(packageInfo.firstInstallTime );
+            appInfo.setLastUpdateTime( packageInfo.lastUpdateTime);
+            appInfo.setAppId( packageInfo.packageName );
+            appInfo.setAppVersion( packageInfo.versionCode );
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return appInfo;
+    }
 }

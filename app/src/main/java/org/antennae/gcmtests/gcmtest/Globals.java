@@ -7,7 +7,7 @@ package org.antennae.gcmtests.gcmtest;
 @Deprecated
 public class Globals
 {
-    public static final String TAG = "GcmWrapper DEMO";
+    public static final String TAG = "GCM_TEST";
 
     public static final String GCM_SENDER_ID = "Your ProjectID";
 

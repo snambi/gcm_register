@@ -20,10 +20,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.telephony.TelephonyManager;
 
+import org.antennea.android.transport.AppDetails;
 import org.antennea.android.transport.AppInfo;
 import org.antennea.android.transport.DeviceInfo;
 import org.antennea.android.transport.PhoneTypeEnum;
-import org.antennea.android.utils.AppVersionUtils;
+import org.antennea.android.utils.AppUtils;
 
 /**
  * Created by nambi sankaran on 6/16/15.
@@ -56,7 +57,7 @@ public class AntennaeContext {
         editor.apply();
 
         // save appVersion
-        int appVersion = AppVersionUtils.getAppVersionFromApk(context);
+        int appVersion = AppUtils.getAppVersionFromApk(context);
         saveAppVersion(appVersion);
     }
 
@@ -79,6 +80,11 @@ public class AntennaeContext {
         return result;
     }
 
+    public AppDetails getAppDetails(){
+        AppDetails appDetails = new AppDetails();
+
+        return appDetails;
+    }
 
     public DeviceInfo getDeviceInfo(){
 
@@ -129,9 +135,7 @@ public class AntennaeContext {
     }
 
     public AppInfo getAppInfo(){
-        AppInfo appinfo = new AppInfo();
-
-        return appinfo;
+        return AppUtils.getAppInfoFromApk(context);
     }
 
     public boolean isNewRegistrationIdNeeded(){
@@ -146,7 +150,7 @@ public class AntennaeContext {
     public boolean isNewAppVersion(){
         boolean result = false;
 
-        int appVersion = AppVersionUtils.getAppVersionFromApk(context);
+        int appVersion = AppUtils.getAppVersionFromApk(context);
         if( getSavedAppVersion() < appVersion ){
             result = true;
         }
