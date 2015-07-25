@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -36,9 +35,9 @@ public class MainActivity extends ActionBarActivity {
         GcmWrapper gcmwrapper = new GcmWrapper(context);
         String registrationId = gcmwrapper.getRegistrationId();
 
-//        if( registrationId != null || !registrationId.trim().equals("")) {
-//            //Toast.makeText(context, "REG_ID = " + registrationId, Toast.LENGTH_SHORT).show();
-//        }
+        if( registrationId == null ){
+            gcmwrapper.registerWithGcmAsync();
+        }
     }
 
     @Override

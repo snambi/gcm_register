@@ -7,10 +7,29 @@ import com.google.gson.Gson;
  */
 public class AppInfo {
 
+    private String gcmRegistrationId;
+    private String apnsRegistrationId;
+
     private int appVersion;
     private String appId;
     private long firstInstallTime;
     private long lastUpdateTime;
+
+    public String getGcmRegistrationId() {
+        return gcmRegistrationId;
+    }
+
+    public void setGcmRegistrationId(String gcmRegistrationId) {
+        this.gcmRegistrationId = gcmRegistrationId;
+    }
+
+    public String getApnsRegistrationId() {
+        return apnsRegistrationId;
+    }
+
+    public void setApnsRegistrationId(String apnsRegistrationId) {
+        this.apnsRegistrationId = apnsRegistrationId;
+    }
 
     public int getAppVersion() {
         return appVersion;

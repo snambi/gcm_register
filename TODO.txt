@@ -1,0 +1,11 @@
+Things that need to be extracted from the CODE.
+
+[1] org.antennea.android.PROJECT_ID should be extracted and configurable.
+    PROJECT_ID is the Google Project Id
+    Here is the example project Id used.
+    https://console.developers.google.com/project/notifytest-963?authuser=0
+
+
+[2] The IP address of the Backend-Registration server:port should be configurable
+    The server address is hardcoded in org.antennea.android.tasks.GcmRegistrationTask.doInBackground() method
+

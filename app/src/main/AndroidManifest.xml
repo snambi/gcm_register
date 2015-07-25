@@ -8,6 +8,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -34,9 +35,8 @@
             </intent-filter>
         </activity>
 
-        <!--
         <receiver
-            android:name=".MyGcmReceiver"
+            android:name=".GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -45,9 +45,10 @@
                 <category android:name="org.antennae.gcmtests.gcmtest"/>
             </intent-filter>
         </receiver>
-        -->
+
 
         <service android:name=".MyGcmIntentService" android:exported="false" ></service>
+        <service android:name=".GcmIntentService" android:exported="false" ></service>
     </application>
 
 </manifest>

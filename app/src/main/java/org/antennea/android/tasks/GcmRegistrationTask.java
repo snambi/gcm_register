@@ -49,15 +49,15 @@ public class GcmRegistrationTask extends AsyncTask {
 
             // send registration Id + device information to the app server
             AppInfo appInfo = antennaeContext.getAppInfo();
+            appInfo.setGcmRegistrationId(regId);
 
             AppDetails appDetails = new AppDetails();
             appDetails.setAppInfo(appInfo);
             appDetails.setDeviceInfo(deviceInfo);
-            appDetails.setGcmRegistrationId(regId);
 
             Log.i(Globals.TAG, "AppDetails " + appDetails.toJson());
 
-            AntenneaServerRegistrationTask antenneaServerRegistrationTask = new AntenneaServerRegistrationTask("http://192.168.1.9:8080/app/registration", appDetails);
+            AntenneaServerRegistrationTask antenneaServerRegistrationTask = new AntenneaServerRegistrationTask("http://192.168.1.171:8080/api/registration", appDetails);
             antenneaServerRegistrationTask.execute();
 
         } catch (IOException e) {

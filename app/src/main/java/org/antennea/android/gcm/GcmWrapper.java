@@ -16,20 +16,12 @@
 package org.antennea.android.gcm;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennae.gcmtests.gcmtest.Globals;
 import org.antennea.android.Constants;
 import org.antennea.android.AntennaeContext;
 import org.antennea.android.tasks.GcmRegistrationTask;
-import org.antennea.android.transport.AppDetails;
-import org.antennea.android.transport.AppInfo;
-import org.antennea.android.transport.DeviceInfo;
-
-import java.io.IOException;
 
 public class GcmWrapper {
 
@@ -47,14 +39,9 @@ public class GcmWrapper {
 
     /*
         Retrieves the saved App RegistrationId from SharedPreferences.
-        If the app is unregistered or needs a new registerationId, kicks of a new refresh.
      */
     public String getRegistrationId(){
         String regId = getRegIdFromContext();
-        if( regId == null || regId.trim().equals("") ){
-            registerWithGcm();
-        }
-
         return regId;
     }
 
@@ -64,16 +51,16 @@ public class GcmWrapper {
 
         if( antennaeContext.isRegistered() ){
             registrationId = antennaeContext.getRegistrationId();
-        }else{
+        }/*else{
             // kickoff registrationId refresh in the background.
-            registerWithGcm();
+            registerWithGcmAsync();
             return registrationId;
         }
 
         if( antennaeContext.isNewRegistrationIdNeeded() ){
             // kickoff registrationId refresh in the background
-            registerWithGcm();
-        }
+            registerWithGcmAsync();
+        }*/
 
         return registrationId;
     }
@@ -82,7 +69,7 @@ public class GcmWrapper {
     /*
         Register with GCM in the background.
      */
-    public void registerWithGcm(){
+    public void registerWithGcmAsync(){
         GcmRegistrationTask registerTask = new GcmRegistrationTask(googleCloudMessaging, antennaeContext, Constants.PROJECT_ID);
         registerTask.execute();
     }
