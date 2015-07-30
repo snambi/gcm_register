@@ -35,6 +35,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".MessageDetailActivity"
+            android:label="@string/title_activity_message_detail" >
+            <intent-filter >
+                <action android:name="org.antennea.intent.notifications.alert"/>
+                <category android:name="org.antennea.category.notifications"/>
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" android:enabled="true"

@@ -1,17 +1,25 @@
 package org.antennae.gcmtests.gcmtest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
+import org.antennae.notifyapp.model.Alert;
+import org.antennae.notifyapp.model.AlertSeverityEnum;
 import org.antennea.android.gcm.GcmWrapper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -20,6 +28,13 @@ public class MainActivity extends ActionBarActivity {
     public static final String EXTRA_MESSAGE = "message";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+
+    public static final String ALERT_PARAM = "alert";
+    public static final String ALERT_NOTIFICATION_INTENT_FILTER = "ALERT_NOTIFICATION_INTENT_FILTER";
+
+    ListView lvMessages;
+    private List<Alert> alerts;
+    private AlertAdapter alertsAdapter;
 
     Context context;
     AtomicInteger msgId = new AtomicInteger();
@@ -38,7 +53,42 @@ public class MainActivity extends ActionBarActivity {
         if( registrationId == null ){
             gcmwrapper.registerWithGcmAsync();
         }
+
+
+        setContentView(R.layout.activity_main);
+
+        lvMessages = (ListView) findViewById(R.id.lvMessages);
+
+        populateAlerts();
+
+        lvMessages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this, MessageDetailActivity.class);
+                i.putExtra(ALERT_PARAM, alerts.get(position));
+                startActivity(i);
+            }
+        });
+
+
     }
+
+    private void populateAlerts() {
+        alerts = new ArrayList<Alert>();
+
+        Alert alert1 = new Alert("High I/O on ADP Apps", "ADP backend has abnormally high IO", AlertSeverityEnum.HIGH.toString(), "Join the bridge on 1-873-555-3846 #556");
+        Alert alert2 = new Alert("MySQL index issue", "MySql index is slower on quote system", AlertSeverityEnum.SEVERE.toString(), "Join the bridge on 1-873-555-3846 #598");
+
+        alerts.add(alert1);
+        alerts.add( alert2 );
+
+        alertsAdapter = new AlertAdapter(this, alerts);
+
+        // Attach the adapter to a ListView
+        lvMessages.setAdapter(alertsAdapter);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

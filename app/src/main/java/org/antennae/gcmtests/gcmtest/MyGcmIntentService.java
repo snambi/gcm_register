@@ -13,6 +13,7 @@ import java.io.IOException;
 /**
  * Created by nambi sankaran on 6/17/15.
  */
+@Deprecated
 public class MyGcmIntentService extends IntentService {
 
 
