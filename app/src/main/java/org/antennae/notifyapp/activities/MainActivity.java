@@ -19,13 +19,14 @@ import org.antennae.gcmtests.gcmtest.R;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
 import org.antennae.android.common.gcm.GcmWrapper;
+import org.antennea.notifyapp.listeners.AlertReceivedListener;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AlertReceivedListener {
 
     public static final String EXTRA_MESSAGE = "message";
     private static final String PROPERTY_APP_VERSION = "appVersion";
@@ -74,6 +75,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void populateAlerts() {
+
         alerts = new ArrayList<Alert>();
 
         Alert alert1 = new Alert("High I/O on ADP Apps", "ADP backend has abnormally high IO", AlertSeverityEnum.HIGH.toString(), "Join the bridge on 1-873-555-3846 #556");
@@ -130,5 +132,12 @@ public class MainActivity extends ActionBarActivity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onReceive(Alert alert) {
+        if( alert != null ){
+
+        }
     }
 }
