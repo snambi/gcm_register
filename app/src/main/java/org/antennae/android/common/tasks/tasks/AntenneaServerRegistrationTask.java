@@ -1,9 +1,9 @@
-package org.antennae.android.tasks;
+package org.antennae.android.common.tasks.tasks;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.antennae.android.transport.AppDetails;
+import org.antennae.android.common.transport.AppDetails;
 
 import org.antennae.notifyapp.constants.Globals;
 import org.apache.http.HttpResponse;

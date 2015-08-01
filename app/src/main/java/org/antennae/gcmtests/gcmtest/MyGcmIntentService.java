@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
-import org.antennae.android.Constants;
+import org.antennae.android.common.Constants;
 
 import java.io.IOException;
 
@@ -22,15 +22,18 @@ public class MyGcmIntentService extends IntentService {
      *
      * @param name Used to name the worker thread, important only for debugging.
      */
+    @Deprecated
     public MyGcmIntentService(String name) {
         super(name);
     }
 
+    @Deprecated
     public MyGcmIntentService(){
         this("MyGcmIntentService");
     }
 
     @Override
+    @Deprecated
     protected void onHandleIntent(Intent intent) {
         InstanceID instanceID = InstanceID.getInstance(this);
         try {

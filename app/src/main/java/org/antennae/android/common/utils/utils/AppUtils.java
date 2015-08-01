@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.antennae.android.utils;
+package org.antennae.android.common.utils.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import org.antennae.android.transport.AppInfo;
+import org.antennae.android.common.transport.AppInfo;
 
 /**
  * Created by nsankaran on 6/16/15.

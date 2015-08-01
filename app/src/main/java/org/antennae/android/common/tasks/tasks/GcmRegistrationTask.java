@@ -1,4 +1,4 @@
-package org.antennae.android.tasks;
+package org.antennae.android.common.tasks.tasks;
 
 /**
  * Created by nsankaran on 6/23/15.
@@ -9,11 +9,11 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennae.android.AntennaeContext;
-import org.antennae.android.transport.DeviceInfo;
+import org.antennae.android.common.AntennaeContext;
+import org.antennae.android.common.transport.DeviceInfo;
 
-import org.antennae.android.transport.AppDetails;
-import org.antennae.android.transport.AppInfo;
+import org.antennae.android.common.transport.AppDetails;
+import org.antennae.android.common.transport.AppInfo;
 import org.antennae.notifyapp.constants.Globals;
 
 import java.io.IOException;

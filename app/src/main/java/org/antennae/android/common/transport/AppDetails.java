@@ -1,4 +1,4 @@
-package org.antennae.android.transport;
+package org.antennae.android.common.transport;
 
 import com.google.gson.Gson;
 

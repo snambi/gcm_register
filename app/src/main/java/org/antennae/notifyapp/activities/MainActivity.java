@@ -18,7 +18,7 @@ import org.antennae.notifyapp.adapters.AlertAdapter;
 import org.antennae.gcmtests.gcmtest.R;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
-import org.antennae.android.gcm.GcmWrapper;
+import org.antennae.android.common.gcm.GcmWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
