@@ -1,4 +1,4 @@
-package org.antennae.gcmtests.gcmtest;
+package org.antennea.notifyapp.services;
 
 import android.app.IntentService;
 import android.content.Intent;

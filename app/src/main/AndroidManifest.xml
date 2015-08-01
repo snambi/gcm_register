@@ -56,7 +56,7 @@
         </receiver>
 
 
-        <service android:name=".MyGcmIntentService" android:exported="false" ></service>
+        <service android:name="org.antennea.notifyapp.services.MyGcmIntentService" android:exported="false" ></service>
         <service android:name="org.antennea.notifyapp.services.GcmIntentService" android:exported="false" ></service>
     </application>
 
