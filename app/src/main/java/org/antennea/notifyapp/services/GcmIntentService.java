@@ -1,4 +1,4 @@
-package org.antennae.gcmtests.gcmtest;
+package org.antennea.notifyapp.services;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+
+import org.antennae.notifyapp.receivers.GcmBroadcastReceiver;
 
 /**
  * Created by nambi sankaran on 6/18/15.

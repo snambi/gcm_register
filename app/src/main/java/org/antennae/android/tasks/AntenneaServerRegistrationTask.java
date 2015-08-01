@@ -1,10 +1,11 @@
-package org.antennea.android.tasks;
+package org.antennae.android.tasks;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.antennae.gcmtests.gcmtest.Globals;
-import org.antennea.android.transport.AppDetails;
+import org.antennae.android.transport.AppDetails;
+
+import org.antennae.notifyapp.constants.Globals;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;

@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.antennea.android;
+package org.antennae.android;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.telephony.TelephonyManager;
 
-import org.antennea.android.transport.AppDetails;
-import org.antennea.android.transport.AppInfo;
-import org.antennea.android.transport.DeviceInfo;
-import org.antennea.android.transport.PhoneTypeEnum;
-import org.antennea.android.utils.AppUtils;
+import org.antennae.android.transport.AppDetails;
+import org.antennae.android.transport.AppInfo;
+import org.antennae.android.transport.DeviceInfo;
+import org.antennae.android.transport.PhoneTypeEnum;
+import org.antennae.android.utils.AppUtils;
 
 /**
  * Created by nambi sankaran on 6/16/15.

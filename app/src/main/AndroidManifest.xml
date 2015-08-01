@@ -27,7 +27,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".MainActivity"
+            android:name="org.antennae.notifyapp.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".MessageDetailActivity"
+            android:name="org.antennae.notifyapp.activities.MessageDetailActivity"
             android:label="@string/title_activity_message_detail" >
             <intent-filter >
                 <action android:name="org.antennea.intent.notifications.alert"/>
@@ -45,7 +45,7 @@
         </activity>
 
         <receiver
-            android:name=".GcmBroadcastReceiver"
+            android:name="org.antennae.notifyapp.receivers.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -57,7 +57,7 @@
 
 
         <service android:name=".MyGcmIntentService" android:exported="false" ></service>
-        <service android:name=".GcmIntentService" android:exported="false" ></service>
+        <service android:name="org.antennea.notifyapp.services.GcmIntentService" android:exported="false" ></service>
     </application>
 
 </manifest>

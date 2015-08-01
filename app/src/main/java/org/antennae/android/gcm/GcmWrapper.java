@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.antennea.android.gcm;
+package org.antennae.android.gcm;
 
 import android.content.Context;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennea.android.Constants;
-import org.antennea.android.AntennaeContext;
-import org.antennea.android.tasks.GcmRegistrationTask;
+import org.antennae.android.AntennaeContext;
+import org.antennae.android.Constants;
+import org.antennae.android.tasks.GcmRegistrationTask;
 
 public class GcmWrapper {
 

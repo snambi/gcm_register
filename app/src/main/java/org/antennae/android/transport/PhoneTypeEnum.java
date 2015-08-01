@@ -1,4 +1,4 @@
-package org.antennea.android.transport;
+package org.antennae.android.transport;
 
 /**
  * Created by nsankaran on 6/22/15.

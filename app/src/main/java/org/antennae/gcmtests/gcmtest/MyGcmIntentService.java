@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
-import org.antennea.android.Constants;
+import org.antennae.android.Constants;
 
 import java.io.IOException;
 

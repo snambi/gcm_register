@@ -1,4 +1,4 @@
-package org.antennea.android.tasks;
+package org.antennae.android.tasks;
 
 /**
  * Created by nsankaran on 6/23/15.
@@ -9,11 +9,12 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import org.antennae.gcmtests.gcmtest.Globals;
-import org.antennea.android.AntennaeContext;
-import org.antennea.android.transport.AppDetails;
-import org.antennea.android.transport.AppInfo;
-import org.antennea.android.transport.DeviceInfo;
+import org.antennae.android.AntennaeContext;
+import org.antennae.android.transport.DeviceInfo;
+
+import org.antennae.android.transport.AppDetails;
+import org.antennae.android.transport.AppInfo;
+import org.antennae.notifyapp.constants.Globals;
 
 import java.io.IOException;
 
@@ -57,7 +58,7 @@ public class GcmRegistrationTask extends AsyncTask {
 
             Log.i(Globals.TAG, "AppDetails " + appDetails.toJson());
 
-            AntenneaServerRegistrationTask antenneaServerRegistrationTask = new AntenneaServerRegistrationTask("http://192.168.1.171:8080/api/registration", appDetails);
+            AntenneaServerRegistrationTask antenneaServerRegistrationTask = new AntenneaServerRegistrationTask("http://192.168.1.160:8080/api/registration", appDetails);
             antenneaServerRegistrationTask.execute();
 
         } catch (IOException e) {

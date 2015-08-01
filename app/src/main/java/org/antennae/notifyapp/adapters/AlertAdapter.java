@@ -1,4 +1,4 @@
-package org.antennae.gcmtests.gcmtest;
+package org.antennae.notifyapp.adapters;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
+import org.antennae.gcmtests.gcmtest.R;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
 
@@ -41,15 +42,18 @@ public class AlertAdapter extends ArrayAdapter<Alert> {
         // Populate the data into the template view using the data object
         tvMessage.setText(alert.getTitle());
         tvTime.setText(DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date()));
-//        vwSeverity.setBackgroundColor(Color.GREEN);
+
+        // vwSeverity.setBackgroundColor(Color.GREEN);
         // Return the completed view to render on screen
         return convertView;
     }
 
     public AlertSeverityEnum convertToSeverity(Alert alert) {
+
         if("UNDER WATCH".equalsIgnoreCase(alert.getSeverity())) {
             return AlertSeverityEnum.UNDER_WATCH;
-        } else
+        } else {
             return AlertSeverityEnum.valueOf(alert.getSeverity());
+        }
     }
 }

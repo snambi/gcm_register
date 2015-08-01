@@ -1,4 +1,4 @@
-package org.antennae.gcmtests.gcmtest;
+package org.antennae.notifyapp.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,11 @@ import android.widget.ListView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
+import org.antennae.notifyapp.adapters.AlertAdapter;
+import org.antennae.gcmtests.gcmtest.R;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
-import org.antennea.android.gcm.GcmWrapper;
+import org.antennae.android.gcm.GcmWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,6 @@ public class MainActivity extends ActionBarActivity {
             gcmwrapper.registerWithGcmAsync();
         }
 
-
         setContentView(R.layout.activity_main);
 
         lvMessages = (ListView) findViewById(R.id.lvMessages);
@@ -70,8 +71,6 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
-
-
     }
 
     private void populateAlerts() {
@@ -80,7 +79,7 @@ public class MainActivity extends ActionBarActivity {
         Alert alert1 = new Alert("High I/O on ADP Apps", "ADP backend has abnormally high IO", AlertSeverityEnum.HIGH.toString(), "Join the bridge on 1-873-555-3846 #556");
         Alert alert2 = new Alert("MySQL index issue", "MySql index is slower on quote system", AlertSeverityEnum.SEVERE.toString(), "Join the bridge on 1-873-555-3846 #598");
 
-        alerts.add(alert1);
+        alerts.add( alert1 );
         alerts.add( alert2 );
 
         alertsAdapter = new AlertAdapter(this, alerts);
@@ -132,5 +131,4 @@ public class MainActivity extends ActionBarActivity {
         }
         return true;
     }
-
 }

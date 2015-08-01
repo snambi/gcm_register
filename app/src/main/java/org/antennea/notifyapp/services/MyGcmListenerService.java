@@ -1,4 +1,4 @@
-package org.antennae.gcmtests.gcmtest.service;
+package org.antennea.notifyapp.services;
 
 import android.os.Bundle;
 import android.util.Log;
