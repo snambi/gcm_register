@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.antennae.android.common.utils.utils;
+package org.antennae.android.common.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
