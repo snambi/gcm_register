@@ -33,7 +33,16 @@ public class EventManager {
         return SINGLETON;
     }
 
-    // process events
+    /**************************************************************************
+     * process events
+     * methods following this marker process the events received, through the listeners
+     *
+    ***************************************************************************/
+
+    /**
+     * process received alerts
+     * @param alert
+     */
     public void processAlertsReceived( Alert alert ){
         if( alertReceivedListenerList != null ){
             for( AlertReceivedListener listener : alertReceivedListenerList ){
@@ -42,13 +51,29 @@ public class EventManager {
         }
     }
 
-    // manage listeners
+
+    /**************************************************************************
+     *  manage listeners
+     *
+     *
+     *************************************************************************/
+
+    /**
+     * Register the AlertReceivedListener
+     *
+     * This adds one listener only once.
+     */
     public void registerAlertReceivedListener( AlertReceivedListener listner){
         if( alertReceivedListenerList != null ){
-            alertReceivedListenerList.add(listner);
+            if( alertReceivedListenerList.indexOf(listner) == -1 ){
+                alertReceivedListenerList.add(listner);
+            }
         }
     }
 
+    /**
+     * Un-Register the AlertReceivedListener
+     */
     public void unregisterAlertReceivedListener( AlertReceivedListener listener ){
         if( alertReceivedListenerList != null ){
             for( AlertReceivedListener l : alertReceivedListenerList ){
@@ -58,5 +83,4 @@ public class EventManager {
             }
         }
     }
-
 }

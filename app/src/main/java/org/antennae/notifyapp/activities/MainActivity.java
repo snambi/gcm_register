@@ -16,6 +16,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import org.antennae.notifyapp.adapters.AlertAdapter;
 import org.antennae.gcmtests.gcmtest.R;
+import org.antennae.notifyapp.events.EventManager;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
 import org.antennae.android.common.gcm.GcmWrapper;
@@ -36,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
     public static final String ALERT_NOTIFICATION_INTENT_FILTER = "ALERT_NOTIFICATION_INTENT_FILTER";
 
     ListView lvMessages;
-    private List<Alert> alerts;
+    private List<Alert> alerts = new ArrayList<Alert>();
     private AlertAdapter alertsAdapter;
 
     Context context;
@@ -46,6 +47,10 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //register the listeners with the even manager
+        EventManager eventManager = EventManager.getInstance();
+        eventManager.registerAlertReceivedListener(this);
 
         context = getApplicationContext();
         context.getSharedPreferences("ANTENNAE", MODE_PRIVATE);
@@ -67,8 +72,11 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent i = new Intent(MainActivity.this, MessageDetailActivity.class);
+
                 i.putExtra(ALERT_PARAM, alerts.get(position));
+
                 startActivity(i);
             }
         });
@@ -76,7 +84,7 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
 
     private void populateAlerts() {
 
-        alerts = new ArrayList<Alert>();
+        //alerts = new ArrayList<Alert>();
 
         Alert alert1 = new Alert("High I/O on ADP Apps", "ADP backend has abnormally high IO", AlertSeverityEnum.HIGH.toString(), "Join the bridge on 1-873-555-3846 #556");
         Alert alert2 = new Alert("MySQL index issue", "MySql index is slower on quote system", AlertSeverityEnum.SEVERE.toString(), "Join the bridge on 1-873-555-3846 #598");
@@ -138,6 +146,19 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
     public void onReceive(Alert alert) {
         if( alert != null ){
 
+            // add to the beginning of the list.
+            // so that it is easier to see
+            alerts.add(0, alert);
+
+            // update view
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    alertsAdapter.notifyDataSetChanged();
+
+                }
+            });
         }
     }
 }

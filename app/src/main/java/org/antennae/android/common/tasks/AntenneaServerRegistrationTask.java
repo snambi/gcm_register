@@ -1,4 +1,4 @@
-package org.antennae.android.common.tasks.tasks;
+package org.antennae.android.common.tasks;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Created by nsankaran on 6/23/15.
+ * Created by nambi sankaran on 6/23/15.
  */
 public class AntenneaServerRegistrationTask extends AsyncTask {
 

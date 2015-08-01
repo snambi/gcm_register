@@ -18,8 +18,8 @@ import org.antennae.notifyapp.model.AlertSeverityEnum;
 
 public class AlertAdapter extends ArrayAdapter<Alert> {
 
-    public AlertAdapter(Context context, List<Alert> users) {
-        super(context, R.layout.layout_message, users);
+    public AlertAdapter(Context context, List<Alert> alerts) {
+        super(context, R.layout.layout_message, alerts);
     }
 
     @Override

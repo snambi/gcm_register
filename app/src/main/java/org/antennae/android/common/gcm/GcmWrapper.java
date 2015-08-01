@@ -21,7 +21,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import org.antennae.android.common.AntennaeContext;
 import org.antennae.android.common.Constants;
-import org.antennae.android.common.tasks.tasks.GcmRegistrationTask;
+import org.antennae.android.common.tasks.GcmRegistrationTask;
 
 public class GcmWrapper {
 

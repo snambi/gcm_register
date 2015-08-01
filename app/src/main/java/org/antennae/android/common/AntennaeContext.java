@@ -24,7 +24,7 @@ import org.antennae.android.common.transport.AppDetails;
 import org.antennae.android.common.transport.AppInfo;
 import org.antennae.android.common.transport.DeviceInfo;
 import org.antennae.android.common.transport.PhoneTypeEnum;
-import org.antennae.android.common.utils.utils.AppUtils;
+import org.antennae.android.common.utils.AppUtils;
 
 /**
  * Created by nambi sankaran on 6/16/15.
