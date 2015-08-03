@@ -16,6 +16,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 
 import org.antennae.notifyapp.adapters.AlertAdapter;
 import org.antennae.gcmtests.gcmtest.R;
+import org.antennae.notifyapp.constants.Globals;
 import org.antennae.notifyapp.events.EventManager;
 import org.antennae.notifyapp.model.Alert;
 import org.antennae.notifyapp.model.AlertSeverityEnum;
@@ -45,6 +46,7 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -134,7 +136,7 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this,
                         PLAY_SERVICES_RESOLUTION_REQUEST).show();
             } else {
-                Log.i("TAG", "This device is not supported.");
+                Log.i(Globals.TAG, "This device is not supported.");
                 finish();
             }
             return false;
@@ -150,7 +152,7 @@ public class MainActivity extends ActionBarActivity implements AlertReceivedList
             // so that it is easier to see
             alerts.add(0, alert);
 
-            // update view
+            // update view on the main thread
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

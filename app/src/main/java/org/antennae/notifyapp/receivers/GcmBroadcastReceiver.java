@@ -7,11 +7,10 @@ import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
+import org.antennae.notifyapp.constants.Globals;
 import org.antennea.notifyapp.services.GcmIntentService;
 
 public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
-
-    private Log log;
 
     public GcmBroadcastReceiver() {
     }
@@ -19,7 +18,7 @@ public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Log.i("GCMTEST", "broadcast message received :");
+        Log.i(Globals.TAG, "broadcast message received :");
 
         // Explicitly specify that GcmIntentService will handle the intent.
         ComponentName comp = new ComponentName(context.getPackageName(),

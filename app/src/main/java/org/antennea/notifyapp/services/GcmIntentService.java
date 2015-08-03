@@ -54,17 +54,19 @@ public class GcmIntentService extends IntentService {
             }else if( GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)){
                 Log.i(Globals.TAG, "GCM MSG DELIVERED: " + extras.toString());
 
-                Alert alert = new Alert();
-                alert.setAction("test");
-                alert.setId(982378921738921L);
-                alert.setSeverity(AlertSeverityEnum.HIGH.toString());
-                alert.setMessage("TEST MESSAGE");
-                alert.setTitle("TEST1");
+                String payload = extras.getString("data");
 
-                eventManager.processAlertsReceived( alert );
+                if( payload != null && !payload.trim().equals("") ){
+
+                    Log.i(Globals.TAG, "DATA received : " + payload);
+                    Alert alert = Alert.fromJson(payload);
+
+                    if( alert != null ){
+                        Log.i(Globals.TAG, "Alert : " + alert.toJson());
+                        eventManager.processAlertsReceived(alert);
+                    }
+                }
             }
-
-            Log.i(Globals.TAG, extras.toString());
         }
 
         // Release the wake lock provided by the WakefulBroadcastReceiver.

@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GcmListenerService;
 
+import org.antennae.notifyapp.constants.Globals;
+
 /**
  * Created by nambi sankaran on 6/20/15.
  */
@@ -33,7 +35,7 @@ public class MyGcmListenerService extends GcmListenerService{
     }
 
     private void showLog(String msg) {
-        final int i = Log.i("GCMTEST", msg);
+        final int i = Log.i(Globals.TAG, msg);
     }
 
 }

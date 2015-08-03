@@ -1,7 +1,5 @@
 package org.antennae.notifyapp.activities;
 
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,32 +17,6 @@ import org.antennae.notifyapp.model.AlertSeverityEnum;
 
 public class MessageDetailActivity extends Activity {
 
-//	@Override
-//	public void onResume() {
-//	    super.onResume();
-//	    registerReceiver(mMessageReceiver, new IntentFilter(MainActivity.ALERT_NOTIFICATION_INTENT_FILTER));
-//	}
-//
-//	//Must unregister onPause()
-//	@Override
-//	protected void onPause() {
-//	    super.onPause();
-//	    unregisterReceiver(mMessageReceiver);
-//	}
-//
-//	//This is the handler that will manager to process the broadcast intent
-//	private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
-//
-//		@Override
-//	    public void onReceive(Context context, Intent intent) {
-//
-//			// Extract data included in the Intent
-//	        Alert alert = (Alert) intent.getSerializableExtra(MainActivity.ALERT_PARAM);
-//
-//	    }
-//	};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +26,6 @@ public class MessageDetailActivity extends Activity {
         Intent intent = getIntent();
 
         Alert alert = (Alert) intent.getSerializableExtra(MainActivity.ALERT_PARAM);
-
-        //Alert alert = (Alert) getIntent().getSerializableExtra(MainActivity.ALERT_PARAM);
 
         setTitle("");
 
@@ -99,6 +69,7 @@ public class MessageDetailActivity extends Activity {
                     //NotificationsReceiver.showNotification(MessageDetailActivity.this, alert);
                 }
             });
+
         } else {
             btnDial.setVisibility(Button.GONE);
             tvCallinInfo.setVisibility(TextView.INVISIBLE);
